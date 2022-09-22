@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+
+    <button class="btn btn-danger" ><a href="{% url 'soz'%}">Ortga</a></button>
+    <a href="{% url 'adding1' %}"> Add student</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Ism</th>
+      <th scope="col">Fam</th>
+      <th scope="col">Yosh</th>
+      <th scope="col">Fan</th>
+      <th scope="col">Sana</th>
+        <th scope="col">Delete</th>
+        <th scope="col">Update</th>
+    </tr>
+  </thead>
+  <tbody>
+   {% for s in stu %}
+    <tr>
+      <th scope="row">{{s.id}}</th>
+      <td>{{s.ism}}</td>
+      <td>{{s.fam}}</td>
+      <td>{{s.yosh}}</td>
+      <td>{{s.fan}}</td>
+      <td>{{s.sana}}</td>
+        <td><a href="{% url 'del_student' s.id %}" class="btn btn-danger">Delete</a></td>
+        <td><a href="{% url 'update_teach' s.id  %}" class="btn btn-success">Update</a></td></td>
+    </tr>
+   {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>

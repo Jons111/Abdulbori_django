@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form  action="{% url 'soz2' %}" method="post">
+    {% csrf_token %}
+    <strong>Ism :</strong>
+    <input type="text" name="ismi" placeholder="Ismni kiriting"><br><br>
+    <strong>Familya :</strong>
+    <input type="text" name="familyasi" placeholder="Familyani kiriting"><br><br>
+    <strong>Yosh :</strong>
+    <input type="number" name="yoshi"><br><br>
+    <strong>Sana :</strong>
+    <input type="date" name="kuni" ><br><br>
+    <strong>Fan :</strong>
+    <select name="fani"><br><br>
+        {% for i in fans %}
+            <option value="{{i.id}}">{{i.nomi}}</option>
+        {% endfor %}
+    </select><br><br>
+    <button type="submit">Saqlash</button>
+</form>
+</body>
+</html>
